@@ -20,6 +20,7 @@ import { GoogleLoginComponent } from './components/google-login/google-login.com
 import { CharacterCardComponent } from './components/character-card/character-card.component';
 import { CharactersListComponent } from './components/characters-list/characters-list.component';
 import { HeartIconComponent } from './components/heart-icon/heart-icon.component';
+import { SelectedCharacterPageComponent } from './pages/selected-character-page/selected-character-page.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { HeartIconComponent } from './components/heart-icon/heart-icon.component
     CharacterCardComponent,
     CharactersListComponent,
     HeartIconComponent,
+    SelectedCharacterPageComponent,
   ],
   imports: [
     BrowserModule,

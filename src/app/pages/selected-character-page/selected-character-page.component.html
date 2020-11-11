@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row" *ngIf="character">
+    <div class="col-4">
+      <img [src]="character.img" [alt]="character.name" class="w-100" />
+    </div>
+    <div class="col-8">
+      <h3>{{ character.name }}</h3>
+      <h6 class="badge badge-primary">{{ character.nickname }}</h6>
+      <h6 class="badge badge-info ml-2">{{ character.status }}</h6>
+
+      <p>Birthday: {{ character.birthday }}</p>
+
+      <p>Ocupación:</p>
+      <ul>
+        <li *ngFor="let item of character.occupation">{{ item }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
