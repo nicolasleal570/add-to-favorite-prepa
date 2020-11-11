@@ -13,37 +13,16 @@ import { FavoritesService } from 'src/app/services/favorites.service';
 })
 export class CharactersListComponent implements OnInit {
   private user: User = null;
-  characters: Array<Character> = [];
+  @Input() characters: Array<Character> = [];
   isLoading = false;
 
-  constructor(
-    private charactersService: APICharactersService,
-    private authService: AuthService
-  ) {}
+  constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {
-    this.getAllCharacters();
-  }
+  ngOnInit(): void {}
 
   getCurrentUser(): void {
     this.authService.getCurrentUser().subscribe((value) => {
       this.user = value;
     });
-  }
-
-  getAllCharacters(): void {
-    this.isLoading = true;
-
-    this.charactersService
-      .getAllCharacters()
-      .then((res) => {
-        const { data } = res;
-        this.characters = data.map((item) => ({
-          ...item,
-          haveLike: false,
-        }));
-        this.isLoading = false;
-      })
-      .catch((err) => console.log(err));
   }
 }

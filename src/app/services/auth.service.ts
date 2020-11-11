@@ -24,7 +24,13 @@ export class AuthService {
     return this.afAuth.user;
   }
 
+  isAuthenticated(): boolean {
+    return localStorage.getItem('user') !== null;
+  }
+
   logout(): Promise<void> {
-    return this.afAuth.signOut();
+    return this.afAuth.signOut().then(() => {
+      localStorage.removeItem('user');
+    });
   }
 }

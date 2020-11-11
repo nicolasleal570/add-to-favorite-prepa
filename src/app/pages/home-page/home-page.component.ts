@@ -10,7 +10,22 @@ import { APICharactersService } from 'src/app/services/api-characters.service';
 export class HomePageComponent implements OnInit {
   characters: Array<Character> = [];
 
-  constructor() {}
+  constructor(private charactersService: APICharactersService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllCharacters();
+  }
+
+  getAllCharacters(): void {
+    this.charactersService
+      .getAllCharacters()
+      .then((res) => {
+        const { data } = res;
+        this.characters = data.map((item) => ({
+          ...item,
+          haveLike: false,
+        }));
+      })
+      .catch((err) => console.log(err));
+  }
 }

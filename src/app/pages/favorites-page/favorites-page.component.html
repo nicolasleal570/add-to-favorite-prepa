@@ -1,1 +1,5 @@
-<p>favorites-page works!</p>
+<div class="container">
+  <ng-container *ngIf="!isLoading">
+    <app-characters-list [characters]="favorites"></app-characters-list>
+  </ng-container>
+</div>
