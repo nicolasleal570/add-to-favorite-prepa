@@ -28,6 +28,7 @@ export class CharacterCardComponent implements OnInit {
       this.user = user;
       if (user) {
         this.favoritesService.getListOfFavorites(user.uid).then((res) => {
+          // Si hay personajes
           if (res.docs.length > 0) {
             this.character.haveLike = (res.docs[0].get('favorites') as Array<
               number
